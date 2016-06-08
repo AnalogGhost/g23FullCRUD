@@ -1,0 +1,19 @@
+extends layout
+block content
+
+  h1 users
+  table
+    tr
+      th ID
+      th User name
+      th admin
+      th
+    each row in rows
+      tr
+        td= row.id
+        td= row.username
+        td
+          a(href='/admin/#{row.id}/isAdmin/#{!row.isAdmin}') #{row.isAdmin}
+        td
+          if user.id != row.id
+            a(href='/admin/#{row.id}/delete') Delete

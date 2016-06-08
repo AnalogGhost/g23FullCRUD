@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    if user.isAdmin
+      h1(class='admin') Hello #{user.username}
+    else
+      h1 Hello #{user.username}
+      
+    if user.id
+      p
+        a(href='/users/signout') Sign Out
+    else
+      p
+        a(href='/users/signup') Sign Up
+      p
+        a(href='/users/signin') Sign In
+    block content
